@@ -57,6 +57,9 @@
             <!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
             <!-- 即事件不是从内部元素触发的 -->
             <div v-on:click.self="fun1">只当在 event.target 是当前元素自身时触发处理函数</div>
+
+            <!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` -->
+            <input v-on:keyup.enter="fun1" placeholder="键盘事件监听(keyup)">
         </div>
     </div>
 </div>
