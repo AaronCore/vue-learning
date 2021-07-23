@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue2 sample2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div>
+        <input type="text" v-model="nameText"><br><br>
+        <span>Name：{{ name }}</span>
+    </div>
+    <hr>
+    <div>
+        <span>天气{{ hotText }}</span><br><br>
+        <button @click="weather">切换</button>
+    </div>
+</div>
+<script>
+    const vm = new Vue({
+        data() {
+            return {
+                nameText: '张三',
+                isHot: true,
+            }
+        },
+        methods: {
+            weather() {
+                this.isHot = !this.isHot
+            }
+        },
+        // 计算属性
+        computed: {
+            name: {
+                get() {
+                    return this.nameText;
+                },
+                set(value) {
+                    this.name = value;
+                }
+            },
+            hotText() {
+                return this.isHot ? '炎热' : '凉爽'
+            },
+        },
+        // 侦听器
+        watch: {
+            isHot: {
+                //immediate: true,
+                handler(newValue, oldValue) {
+                    console.log("newValue：" + newValue + ",oldValue：" + oldValue)
+                }
+            }
+        }
+    })
+    vm.$mount('#app')
+</script>
+</body>
+</html>
