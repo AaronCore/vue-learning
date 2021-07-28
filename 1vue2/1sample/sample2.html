@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>vue2 sample2</title>
+    <title>vue2 sample2 计算属性和侦听器</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
 <body>
 <div id="app">
+    <!--
+        computed和watch之间的区别：
+           1.computed能完成的功能watch都可以完成。
+           2.watch能完成的computed不一定能完成。比如：watch可以异步操作。
+        两个重要小原则：
+            1.所被Vue管理的函数，最好写成普通函数，这样this的指向才是组件实例对象。
+            2.所有不被Vue所管理的函数（定时器的回调函数、ajax的回调函数等），最好写成箭头函数，这样this的指向才是组件实例对象。
+    -->
     <div>
         <input type="text" v-model="nameText"><br><br>
         <span>Name：{{ name }}</span>
@@ -16,6 +24,13 @@
         <span>天气{{ hotText }}</span><br><br>
         <button @click="weather">切换</button>
     </div>
+    <hr>
+    <div>
+        <h3>a的值：{{ number.a }}</h3>
+        <button @click="number.a++">点击a+1</button>
+        <h3>b的值：{{ number.b }}</h3>
+        <button @click="number.b++">点击b+1</button>
+    </div>
 </div>
 <script>
     const vm = new Vue({
@@ -23,6 +38,10 @@
             return {
                 nameText: '张三',
                 isHot: true,
+                number: {
+                    a: 1,
+                    b: 1
+                }
             }
         },
         methods: {
@@ -50,6 +69,19 @@
                 //immediate: true,
                 handler(newValue, oldValue) {
                     console.log("newValue：" + newValue + ",oldValue：" + oldValue)
+                }
+            },
+            // 监听多级结构中某个属性的变化
+            // "number.a": {
+            //     handler() {
+            //         console.log('a改变了')
+            //     }
+            // },
+            // 监听多级结构中所有属性的变化
+            number: {
+                deep: true,
+                handler() {
+                    console.log('number改变了')
                 }
             }
         }
