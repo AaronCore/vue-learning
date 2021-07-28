@@ -8,6 +8,7 @@
 <body>
 <div id="app">
     <div>
+        <p>数组遍历</p>
         <ul>
             <li v-for="item in persons" :key="item.id">
                 {{ item.message }}
@@ -15,6 +16,22 @@
         </ul>
     </div>
     <hr>
+    <div>
+        <p>对象遍历</p>
+        <ul>
+            <li v-for="value in object">
+                {{ value }}
+            </li>
+            <hr>
+            <li v-for="(value,name) in object">
+                {{ name }} ： {{ value }}
+            </li>
+            <hr>
+            <li v-for="(value,name,index) in object">
+                {{ index }}. {{ name }} ： {{ value }}
+            </li>
+        </ul>
+    </div>
 </div>
 <script>
     const vm = new Vue({
@@ -24,7 +41,12 @@
                     {"id": 1, "message": 'Foo'},
                     {"id": 2, "message": 'Bar'},
                     {"id": 3, "message": 'Red'},
-                ]
+                ],
+                object: {
+                    title: 'How to do lists in Vue',
+                    author: 'Jane Doe',
+                    publishedAt: '2016-04-10'
+                }
             }
         },
         methods: {},
