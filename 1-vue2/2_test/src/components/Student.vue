@@ -1,7 +1,7 @@
 <template>
   <div class="demo">
     <h2 class="title">学生姓名：{{ name }}</h2>
-    <h2 class="atguigu">学生性别：{{ sex }}</h2>
+    <h2 class="sex">学生性别：{{ sex }}</h2>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
 .demo {
   background-color: pink;
 
-  .atguigu {
+  .sex {
     font-size: 40px;
   }
 }
