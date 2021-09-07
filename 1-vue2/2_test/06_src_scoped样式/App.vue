@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <h1 class="title">你好啊</h1>
     <hr>
     <School></School>

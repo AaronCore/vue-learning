@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <School></School>
     <hr>
     <Student></Student>
