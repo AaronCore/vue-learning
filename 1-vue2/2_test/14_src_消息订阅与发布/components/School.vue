@@ -23,7 +23,7 @@ export default {
     }) */
     this.pubId = pubsub.subscribe('hello', (msgName, data) => {
       console.log(this)
-      console.log('有人发布了hello消息，hello消息的回调执行了',msgName,data)
+      // console.log('有人发布了hello消息，hello消息的回调执行了',msgName,data)
     })
   },
   beforeDestroy() {
