@@ -6,6 +6,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 //引入路由器
 import router from './router'
+
 //关闭Vue的生产提示
 Vue.config.productionTip = false
 //应用插件
