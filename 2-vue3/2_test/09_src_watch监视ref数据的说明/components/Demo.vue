@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {ref, reactive, watch} from 'vue'
+import {ref, watch} from 'vue'
 
 export default {
   name: 'Demo',
