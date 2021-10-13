@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {ref, reactive, watch, watchEffect} from 'vue'
+import {ref, reactive, watchEffect} from 'vue'
 
 export default {
   name: 'Demo',
@@ -40,7 +40,7 @@ export default {
     watchEffect(() => {
       const x1 = sum.value
       const x2 = person.job.j1.salary
-      console.log('watchEffect所指定的回调执行了')
+      console.log(x1, x2, 'watchEffect所指定的回调执行了')
     })
 
     //返回一个对象（常用）
